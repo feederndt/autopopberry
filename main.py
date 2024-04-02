@@ -7,8 +7,6 @@ seedPos = ()
 canPos = ()
 shearsPos = ()
 
-turn = 1
-
 
 def plant():
     pyautogui.click(x=seedPos[0], y=seedPos[1])
@@ -31,13 +29,18 @@ def harvest():
     pyautogui.press("esc")
 
 
-while turn > 0:
-    turn -= 1
-    for bros in broswerPos:
-        plant()
-        water()
+if __name__ == "__main__":
+    turn = 1
 
-    sleep(60)
+    while turn > 0:
+        turn -= 1
+        for bros in broswerPos:
+            sleep(1)
+            plant()
+            water()
 
-    for bros in broswerPos:
-        harvest()
+        sleep(60)
+
+        for bros in broswerPos:
+            sleep(1)
+            harvest()
